@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main()
+{
+    int number,guess,nguesses=1;
+    srand(time(0));
+    number= rand()%100+1; // generates a random number between 1 and 100
+      // printf("The number is %d\n", number);
+    //keep running the loop until the number is guessed
+  
+   while(guess!=number && nguesses<=5)
+  {
+      printf("Guess no: %d",nguesses);
+      printf("\nGuess the number between 1 to 100\n");
+      scanf("%d",&guess);
+      if(guess>number)
+      {
+          printf("LOWER number please!\n\n");
+
+      }
+      else if(guess<number)
+      {
+        printf("HIGHER number please!\n\n");
+
+      }
+      else
+      {
+          printf("\n\t\tCONGRATULATIONS! You guessed it in %d attempts\n",nguesses);
+
+      }
+       nguesses++;
+    }
+
+
+    if(guess!=number)
+    {
+        printf("\n\t\tSORRY! You have failed to guess the number.\n");
+        printf("\t\tThe number was %d\n", number);
+        printf("\t\tBETTER LUCK NEXT TIME!\n");
+    }
+    else
+    {
+        printf("\n\t\tYour score is %d\n",100/(nguesses-1));
+    }
+
+    return 0;
+
+}
